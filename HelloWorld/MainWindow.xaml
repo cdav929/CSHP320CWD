@@ -5,21 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HelloWorld"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" WindowState = "Maximized" Width="525">
+        Title="MainWindow" Height="350" Width="525" WindowState="Maximized">
+    <!--Exercise No.2 Window to be maximized-->
 
-    <StackPanel>
+    
+        <StackPanel x:Name="uxContainer">
+        <ListView x:Name="uxList">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding UserName}" Header="User Name" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding UserPassword}" Header="Password" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
         <TextBlock>Enter Name:</TextBlock>
-        <TextBox x:Name="uxName" TextChanged="uxName_TextChanged"></TextBox>
-        <TextBlock>Enter Password:</TextBlock>
-        <TextBox x:Name="uxPassword" TextChanged="uxPassword_TextChanged"></TextBox>
-        <Button x:Name="uxSubmit" Click="uxSubmit_Click" IsEnabled="False">Submit  </Button>
-        <Button x:Name="uxClick">
-            <Button.Content>
-                <CheckBox>CheckMe</CheckBox> 
-            </Button.Content>
-        </Button>
 
-    </StackPanel>
+            <TextBox x:Name="uxName" 
+        Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+               
+            </TextBox>
+
+            <Label x:Name="uxNameError" 
+            Content="{Binding NameError, UpdateSourceTrigger=PropertyChanged}"></Label>
+
+            <!-- Exercise 1 - databinding, add password validation-->
+            <TextBlock>Enter Password:</TextBlock>
+            
+            <TextBox x:Name="uxPassword" 
+        Text="{Binding Password, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+            </TextBox>
+
+            <Label x:Name="uxPasswordError" 
+            Content="{Binding PasswordError, UpdateSourceTrigger=PropertyChanged}"></Label>
+
+            <!-- Exercise 2-->
+            <PasswordBox x:Name="uxPasswordBox" PasswordChar="*" Background="Azure"/>
+
+            <Button x:Name="uxSubmit" Click="uxSubmit_Click" Background="#FF11E5F0">Submit
+            </Button>
+            
+
+            <!--Exercise No.1 Under Basic XAML - Add a CheckBox-->
+            <Button Height="100" Width="100">
+                <CheckBox>Check</CheckBox>
+            </Button>
+
+        </StackPanel>
 </Window>
 

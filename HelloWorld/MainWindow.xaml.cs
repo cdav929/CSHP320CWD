@@ -18,6 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
 
 namespace HelloWorld
 {
@@ -26,9 +27,21 @@ namespace HelloWorld
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Models.User user = new Models.User();
         public MainWindow()
         {
             InitializeComponent();
+            uxContainer.DataContext = user;
+
+            var sample = new SampleContext();
+            
+            sample.User.Load();
+            var users = sample.User.Local.ToObservableCollection();
+            uxList.ItemsSource = users;
+            uxName.DataContext = user;
+            uxNameError.DataContext = user;
+            uxPassword.DataContext = user;
+            uxPasswordError.DataContext = user;
         }
 
         private void SetButton()

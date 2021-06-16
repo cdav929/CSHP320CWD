@@ -96,6 +96,7 @@ namespace HomeInventoryApp
         {
             uxFileChange.IsEnabled = (selectedContact != null);
             uxContextFileChange.IsEnabled = uxFileChange.IsEnabled;
+            
         }
 
         private void uxItemList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)

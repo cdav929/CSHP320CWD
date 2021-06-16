@@ -21,20 +21,20 @@ namespace HomeInventoryApp
 
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
         {
-            Contact = new InventoryItemsModel();
+            //Contact = new InventoryItemsModel();
 
-            Contact.Name = uxName.Text;
-            Contact.Brand = uxBrand.Text;
+            //Contact.Name = uxName.Text;
+            //Contact.Brand = uxBrand.Text;
 
 
-            Contact.ModelNumber = uxModelNumber.Text;
-            Contact.Notes = uxNotes.Text;
-            Contact.CreatedDate = DateTime.Now;
-            Contact.Price = Convert.ToDecimal(uxPrice.Text);
-            Contact.SerialNumber = uxSerial.Text;
-            Contact.PurchaseLocation = uxPurchLocation.Text;
-            Contact.PurchaseDate = Convert.ToDateTime(uxPurchDate.Text);
-            Contact.WarrantyLength = Convert.ToInt32(uxWarranty.Text);
+            //Contact.ModelNumber = uxModelNumber.Text;
+            //Contact.Notes = uxNotes.Text;
+            //Contact.CreatedDate = DateTime.Now;
+            //Contact.Price = Convert.ToDecimal(uxPrice.Text);
+            //Contact.SerialNumber = uxSerial.Text;
+            //Contact.PurchaseLocation = uxPurchLocation.Text;
+            //Contact.PurchaseDate = Convert.ToDateTime(uxPurchDate.Text);
+            //Contact.WarrantyLength = Convert.ToInt32(uxWarranty.Text);
 
 
 

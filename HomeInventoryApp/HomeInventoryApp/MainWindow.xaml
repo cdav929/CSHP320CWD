@@ -64,7 +64,9 @@
                     <GridViewColumn DisplayMemberBinding="{Binding PurchaseDate}" Header="Purchase Date" Width="155" />
                     <GridViewColumn DisplayMemberBinding="{Binding Notes}" Header="Notes" Width="350"  />
                 </GridView>
+                
             </ListView.View>
         </ListView>
     </StackPanel>
+    
 </Window>

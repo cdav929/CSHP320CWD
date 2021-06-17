@@ -35,7 +35,7 @@ namespace HomeInventoryApp
             //Contact.PurchaseLocation = uxPurchLocation.Text;
             //Contact.PurchaseDate = Convert.ToDateTime(uxPurchDate.Text);
             //Contact.WarrantyLength = Convert.ToInt32(uxWarranty.Text);
-
+           
 
 
            

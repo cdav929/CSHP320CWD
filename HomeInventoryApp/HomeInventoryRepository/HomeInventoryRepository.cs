@@ -75,7 +75,7 @@ namespace HomeInventoryRepository
 
             return items;
         }
-
+        
         public bool Update(InventoryItemsModel inventoryItemsModel)
         {
             var original = DatabaseManager.Instance.InventoryItems.Find(inventoryItemsModel.Id);

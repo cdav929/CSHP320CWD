@@ -26,8 +26,15 @@ namespace HomeInventoryApp
         {
             InitializeComponent();
             LoadContacts();
+
         }
 
+        
+        
+        
+        
+
+    
         private InventoryItemsModel selectedContact;
 
         private void uxItemList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -46,9 +53,12 @@ namespace HomeInventoryApp
            
         }
 
+        
+
         private void uxFileNew_Click(object sender, RoutedEventArgs e)
         {
             var window = new HomeInventoryWindow();
+            
 
             if (window.ShowDialog() == true)
             {
@@ -57,12 +67,14 @@ namespace HomeInventoryApp
                 var repositoryContactModel = uiContactModel.ToRepositoryModel();
 
                 App.HomeInventoryRepository.Add(repositoryContactModel);
+               // repositoryContactModel.PurchaseDate = System.DateTime.Today;
 
                 LoadContacts();
 
                 // OR
                 //App.ContactRepository.Add(window.Contact.ToRepositoryModel());
             }
+
         }
 
         private void uxFileDelete_Click(object sender, RoutedEventArgs e)

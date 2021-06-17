@@ -1,11 +1,72 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace HomeInventoryApp.Models
 {
-    public class InventoryItemsModel
+    public class InventoryItemsModel : IDataErrorInfo, INotifyPropertyChanged
     {
+       
+        private string nameError { get; set; }
+
+        // INotifyPropertyChanged interface
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        // IDataErrorInfo interface
+        public string Error => "Never Used";
+
+        public string this[string columnName]
+        {
+            get
+            {
+                switch (columnName)
+                {
+                    case "Name":
+                        {
+                            NameError = "";
+
+                            if (Name == null || string.IsNullOrEmpty(Name))
+                            {
+                                NameError = "Name cannot be empty.";
+
+                            }
+                            else if (Name.Length > 20)
+                            {
+                                NameError = "Name cannot be longer than 20 characters.";
+                            }
+
+                            return NameError;
+                        }
+                }
+
+                return null;
+            }
+        }
+
+        public string NameError
+        {
+            get
+            {
+                return nameError;
+            }
+            set
+            {
+                if (nameError != value)
+                {
+                    nameError = value;
+                    OnPropertyChanged("NameError");
+                }
+            }
+        }
+
+
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Brand { get; set; }
@@ -19,6 +80,7 @@ namespace HomeInventoryApp.Models
         public System.DateTime PurchaseDate { get; set; }
 
 
+       
         //internal InventoryItemsModel Clone()
         //{
         //    return (InventoryItemsModel)this.MemberwiseClone();
@@ -62,5 +124,6 @@ namespace HomeInventoryApp.Models
 
             return inventoryItemsModel;
         }
+        
     }
 }

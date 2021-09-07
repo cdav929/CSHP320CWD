@@ -4,6 +4,7 @@
 
 
 
+using System;
 using InventoryItemsDB;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,8 +48,8 @@ namespace HomeInventoryRepository
                 SerialNumber = inventoryItemsDb.ItemSerialNumber,
                 PurchaseLocation = inventoryItemsDb.ItemPurchaseLocation,
                 Price = (decimal)inventoryItemsDb.ItemPrice,
-                WarrantyLength = (int)inventoryItemsDb.ItemWarrantylength,
-                PurchaseDate = (System.DateTime)inventoryItemsDb.ItemDatePurchased,
+                WarrantyLength = inventoryItemsDb.ItemWarrantylength,
+                PurchaseDate = inventoryItemsDb.ItemDatePurchased,
 
             };
             return inventoryItemsModel;
